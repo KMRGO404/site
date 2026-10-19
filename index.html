@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conecta Wenceslau | Plataforma Solidária de Wenceslau Braz - PR</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F4F7F5',
+              100: '#E3EBE6',
+              500: '#2D6A4F', // Verde acolhedor
+              600: '#1B4332',
+              700: '#081C15',
+            },
+            sand: {
+              50: '#FDFBF7',
+              100: '#F7F3E9',
+              200: '#EFE7D5',
+              800: '#3D3A34'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FDFBF7;
+      color: #2D3748;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.7);
+    }
+    .hero-bg {
+      background-image: linear-gradient(180deg, rgba(8, 28, 21, 0.75) 0%, rgba(27, 67, 50, 0.85) 100%), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header class="sticky top-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-sand-200 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-hand-holding-heart text-xl"></i>
+          </div>
+          <div>
+            <span class="font-display font-bold text-xl text-brand-700 tracking-tight block leading-none">Conecta</span>
+            <span class="text-xs text-brand-500 font-medium tracking-wide">Wenceslau Braz • PR</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+          <a href="#instituicoes" class="hover:text-brand-500 transition-colors">Instituições</a>
+          <a href="#categorias" class="hover:text-brand-500 transition-colors">O que Doar</a>
+          <a href="#mapa" class="hover:text-brand-500 transition-colors">Mapa das Entidades</a>
+          <a href="#retirada" class="hover:text-brand-500 transition-colors">Agendar Retirada</a>
+        </nav>
+
+        <!-- CTA Header (Posicionado mais à direita) -->
+        <div class="hidden sm:flex items-center ml-auto md:ml-8">
+          <a href="#retirada" class="px-6 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-sm hover:shadow hover:scale-105">
+            <i class="fa-solid fa-truck-pickup mr-1.5"></i> Pedir Retirada
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-600 hover:text-brand-500 focus:outline-none ml-3">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+      <a href="#instituicoes" class="block py-2 text-gray-700 hover:text-brand-500 font-medium">Instituições</a>
+      <a href="#categorias" class="block py-2 text-gray-700 hover:text-brand-500 font-medium">O que Doar</a>
+      <a href="#mapa" class="block py-2 text-gray-700 hover:text-brand-500 font-medium">Mapa das Entidades</a>
+      <a href="#retirada" class="block py-2 text-gray-700 hover:text-brand-500 font-medium">Agendar Retirada</a>
+      <a href="#retirada" class="block w-full text-center py-2.5 rounded-xl bg-brand-500 text-white font-medium">
+        Solicitar Retirada em Casa
+      </a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative hero-bg text-white py-24 md:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-sand-100 text-xs font-semibold uppercase tracking-wider mb-6 border border-white/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Rede Solidária Oficial de Wenceslau Braz
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+          Sua doação transforma vidas na nossa cidade.
+        </h1>
+        <p class="text-lg sm:text-xl text-sand-100 font-light leading-relaxed mb-8">
+          Apoie diretamente o <strong>Hospital São Sebastião</strong>, a <strong>Casa Lar</strong> e o <strong>Asilo São Vicente de Paulo</strong>. Doe mantimentos, roupas, artigos de higiene ou agende a busca de itens em sua casa.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#instituicoes" class="px-7 py-3.5 rounded-xl bg-white text-brand-700 font-semibold hover:bg-sand-100 transition-all text-center shadow-lg">
+            Ver Instituições & Contas
+          </a>
+          <a href="#retirada" class="px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-all text-center shadow-lg border border-brand-400/30">
+            <i class="fa-solid fa-house-chimney-medical mr-2"></i> Agendar Busca no Endereço
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INSTITUIÇÕES ==================== -->
+  <section id="instituicoes" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Instituições Atendidas</h2>
+      <p class="text-gray-600 text-lg">
+        Três pilares fundamentais de acolhimento, saúde e proteção comunitária em Wenceslau Braz - PR.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Hospital -->
+      <div class="glass-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80" alt="Hospital São Sebastião" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-red-600 uppercase tracking-wider">
+            <i class="fa-solid fa-hospital mr-1"></i> Saúde e Emergência
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Hospital São Sebastião</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              Atendimento hospitalar contínuo para a população brazense. Aceita doações para manutenção de insumos de saúde, produtos de limpeza e recursos operacionais.
+            </p>
+            <div class="bg-sand-100 p-3.5 rounded-xl mb-6 text-xs text-gray-700 space-y-1">
+              <p><i class="fa-solid fa-location-dot text-brand-500 mr-2"></i><strong>Endereço:</strong> Rua Paraná, nº 26 - Centro</p>
+              <p><i class="fa-solid fa-phone text-brand-500 mr-2"></i><strong>Telefone:</strong> (43) 3528-1100</p>
+            </div>
+          </div>
+          <button onclick="openModal('hospital')" class="w-full py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-hand-holding-dollar"></i> Ver Dados Bancários & Itens
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Casa Lar -->
+      <div class="glass-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Casa Lar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-amber-600 uppercase tracking-wider">
+            <i class="fa-solid fa-child-reaching mr-1"></i> Infância e Proteção
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Casa Lar</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              Acolhimento temporário e seguro para crianças e adolescentes em situação de vulnerabilidade. Necessita de roupas infantis, materiais escolares e mantimentos.
+            </p>
+            <div class="bg-sand-100 p-3.5 rounded-xl mb-6 text-xs text-gray-700 space-y-1">
+              <p><i class="fa-solid fa-location-dot text-brand-500 mr-2"></i><strong>Endereço:</strong> Av. Avelino Vieira, 295 - Centro</p>
+              <p><i class="fa-solid fa-phone text-brand-500 mr-2"></i><strong>Telefone:</strong> (43) 3528-2123</p>
+            </div>
+          </div>
+          <button onclick="openModal('casalar')" class="w-full py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-hand-holding-dollar"></i> Ver Dados Bancários & Itens
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3: Asilo -->
+      <div class="glass-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Asilo São Vicente de Paulo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-emerald-700 uppercase tracking-wider">
+            <i class="fa-solid fa-heart-pulse mr-1"></i> Idosos e Acolhimento
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Asilo São Vicente de Paulo</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              Lar e assistência integral a idosos da nossa comunidade. Fraldas geriátricas, produtos de higiene pessoal, leite e suplementos alimentares são prioridades urgentes.
+            </p>
+            <div class="bg-sand-100 p-3.5 rounded-xl mb-6 text-xs text-gray-700 space-y-1">
+              <p><i class="fa-solid fa-location-dot text-brand-500 mr-2"></i><strong>Endereço:</strong> Rua Alcides da Silva Reis, nº 500 - Vila Santa Maria</p>
+              <p><i class="fa-solid fa-phone text-brand-500 mr-2"></i><strong>Telefone:</strong> (43) 3528-2133</p>
+            </div>
+          </div>
+          <button onclick="openModal('asilo')" class="w-full py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-hand-holding-dollar"></i> Ver Dados Bancários & Itens
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FILTRO DE CATEGORIAS ==================== -->
+  <section id="categorias" class="py-16 bg-sand-100 border-y border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h2 class="font-display text-3xl font-bold text-gray-900 mb-2">O que você deseja doar hoje?</h2>
+        <p class="text-gray-600">Selecione uma categoria para consultar qual entidade mais necessita no momento.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10" id="filterButtons">
+        <button onclick="filterCategory('all')" class="cat-btn active px-5 py-2.5 rounded-full bg-brand-500 text-white font-medium text-sm transition-all shadow-sm">
+          Todas as Opções
+        </button>
+        <button onclick="filterCategory('dinheiro')" class="cat-btn px-5 py-2.5 rounded-full bg-white text-gray-700 hover:bg-brand-50 font-medium text-sm transition-all border border-gray-200">
+          <i class="fa-solid fa-building-columns text-brand-500 mr-1.5"></i> Transferência Bancária
+        </button>
+        <button onclick="filterCategory('higiene')" class="cat-btn px-5 py-2.5 rounded-full bg-white text-gray-700 hover:bg-brand-50 font-medium text-sm transition-all border border-gray-200">
+          <i class="fa-solid fa-pump-soap text-brand-500 mr-1.5"></i> Higiene & Limpeza
+        </button>
+        <button onclick="filterCategory('alimentos')" class="cat-btn px-5 py-2.5 rounded-full bg-white text-gray-700 hover:bg-brand-50 font-medium text-sm transition-all border border-gray-200">
+          <i class="fa-solid fa-bowl-food text-brand-500 mr-1.5"></i> Alimentos
+        </button>
+        <button onclick="filterCategory('roupas')" class="cat-btn px-5 py-2.5 rounded-full bg-white text-gray-700 hover:bg-brand-50 font-medium text-sm transition-all border border-gray-200">
+          <i class="fa-solid fa-shirt text-brand-500 mr-1.5"></i> Roupas & Cobertores
+        </button>
+      </div>
+
+      <!-- Needs Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="needsContainer">
+        
+        <div class="need-item bg-white p-6 rounded-2xl border border-gray-200 shadow-sm" data-cat="higiene">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-brand-600 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-box-tissue"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Fraldas Geriátricas (G / EG)</h4>
+              <span class="text-xs text-red-600 font-semibold uppercase">Urgência Alta • Asilo</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">Essenciais para os idosos residentes no Asilo São Vicente de Paulo.</p>
+          <a href="#retirada" class="text-xs font-semibold text-brand-500 hover:text-brand-600 flex items-center gap-1">
+            Agendar entrega ou coleta <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="need-item bg-white p-6 rounded-2xl border border-gray-200 shadow-sm" data-cat="alimentos">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Leite Integral e Alimentos Não Perecíveis</h4>
+              <span class="text-xs text-amber-600 font-semibold uppercase">Urgência Média • Casa Lar & Asilo</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">Arroz, feijão, leite, óleo e farináceos para o cardápio diário.</p>
+          <a href="#retirada" class="text-xs font-semibold text-brand-500 hover:text-brand-600 flex items-center gap-1">
+            Agendar entrega ou coleta <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="need-item bg-white p-6 rounded-2xl border border-gray-200 shadow-sm" data-cat="higiene">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Desinfetantes e Sabão em Pó</h4>
+              <span class="text-xs text-red-600 font-semibold uppercase">Urgência Alta • Hospital & Entidades</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">Para manutenção de higienização de ambientes hospitalares e de acolhimento.</p>
+          <a href="#retirada" class="text-xs font-semibold text-brand-500 hover:text-brand-600 flex items-center gap-1">
+            Agendar entrega ou coleta <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="need-item bg-white p-6 rounded-2xl border border-gray-200 shadow-sm" data-cat="roupas">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Roupas Infantis e Calçados</h4>
+              <span class="text-xs text-amber-600 font-semibold uppercase">Urgência Média • Casa Lar</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">Agasalhos, meias, calçados e roupas em bom estado para crianças e jovens.</p>
+          <a href="#retirada" class="text-xs font-semibold text-brand-500 hover:text-brand-600 flex items-center gap-1">
+            Agendar entrega ou coleta <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="need-item bg-white p-6 rounded-2xl border border-gray-200 shadow-sm" data-cat="dinheiro">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Apoio Financeiro via Depósito</h4>
+              <span class="text-xs text-brand-600 font-semibold uppercase">Contínuo • Todas as Entidades</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">Transferências bancárias diretas para contas institucionais oficiais.</p>
+          <a href="#instituicoes" class="text-xs font-semibold text-brand-500 hover:text-brand-600 flex items-center gap-1">
+            Ver contas bancárias oficiais <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAPA & LOCALIZAÇÃO ==================== -->
+  <section id="mapa" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-brand-500 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+        <i class="fa-solid fa-map-location-dot mr-1"></i> Wenceslau Braz - PR
+      </span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-4">Mapa e Localização das Entidades</h2>
+      <p class="text-gray-600">
+        Entregue suas doações pessoalmente ou visite as sedes das instituições em nossa cidade.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 items-start">
+      
+      <!-- Lista de Endereços -->
+      <div class="space-y-4 lg:col-span-1">
+        
+        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-brand-500 transition-colors">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">
+              1
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Hospital São Sebastião</h4>
+              <p class="text-xs text-gray-600 mt-1"><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Rua Paraná, nº 26 - Centro</p>
+              <p class="text-xs text-gray-500 mt-0.5">CEP: 84950-000 • Wenceslau Braz - PR</p>
+              <a href="https://maps.google.com/?q=Rua+Paraná+26+Wenceslau+Braz+PR" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-500 hover:underline mt-2">
+                Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-brand-500 transition-colors">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">
+              2
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Casa Lar</h4>
+              <p class="text-xs text-gray-600 mt-1"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Av. Avelino Vieira, 295 - Centro</p>
+              <p class="text-xs text-gray-500 mt-0.5">CEP: 84950-000 • Wenceslau Braz - PR</p>
+              <a href="https://maps.google.com/?q=Avenida+Avelino+Vieira+295+Wenceslau+Braz+PR" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-500 hover:underline mt-2">
+                Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-brand-500 transition-colors">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">
+              3
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Asilo São Vicente de Paulo</h4>
+              <p class="text-xs text-gray-600 mt-1"><i class="fa-solid fa-location-dot text-emerald-600 mr-1"></i> Rua Alcides da Silva Reis, nº 500 - Vila Santa Maria</p>
+              <p class="text-xs text-gray-500 mt-0.5">CEP: 84950-000 • Wenceslau Braz - PR</p>
+              <a href="https://maps.google.com/?q=Rua+Alcides+da+Silva+Reis+500+Wenceslau+Braz+PR" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-500 hover:underline mt-2">
+                Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Map Embedded -->
+      <div class="lg:col-span-2 h-[420px] rounded-2xl overflow-hidden shadow-md border border-gray-200 relative">
+        <iframe 
+          title="Mapa Wenceslau Braz"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14545.23412354!2d-49.8050!3d-23.8740!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c1c5a278912345%3A0x123456789abcdef!2sWenceslau%20Braz%20-%20PR%2C%2084950-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FORMULÁRIO DE ENVIAR MENSAGENS E RETIRADA (ENVIANDO PARA THEUZSKY@GMAIL.COM) ==================== -->
+  <section id="retirada" class="py-20 bg-sand-100 border-t border-sand-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-xl">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold mb-3 border border-brand-100">
+            <i class="fa-solid fa-envelope text-brand-500"></i> Notificações enviadas diretamente para: <strong>theuzsky@gmail.com</strong>
+          </div>
+          <h2 class="font-display text-3xl font-bold text-gray-900 mb-2">Enviar Mensagem ou Agendar Retirada</h2>
+          <p class="text-gray-600 text-sm">
+            Preencha o formulário abaixo para enviar dúvidas, sugestões ou agendar a busca de doações em seu endereço em Wenceslau Braz.
+          </p>
+        </div>
+
+        <!-- FORMULÁRIO CONFIGURADO PARA THEUZSKY@GMAIL.COM -->
+        <form id="pickupForm" action="https://formsubmit.co/theuzsky@gmail.com" method="POST" class="space-y-6">
+          
+          <!-- Configurações do FormSubmit -->
+          <input type="hidden" name="_subject" value="Nova Mensagem / Pedido de Retirada - Conecta Wenceslau">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <!-- Dados Pessoais -->
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Seu Nome Completo *</label>
+              <input type="text" name="Nome" required placeholder="Ex: Maria da Silva" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Telefone / WhatsApp *</label>
+              <input type="tel" name="Telefone" required placeholder="(43) 99999-0000" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm transition-all" />
+            </div>
+          </div>
+
+          <!-- ENDEREÇO DETALHADO (Rua, Número, Bairro, Complemento) -->
+          <div class="border-t border-gray-100 pt-6">
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-4">
+              <i class="fa-solid fa-location-dot mr-1"></i> Endereço Completo em Wenceslau Braz (caso seja para retirada)
+            </p>
+            
+            <div class="grid sm:grid-cols-3 gap-4 mb-4">
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Rua / Avenida *</label>
+                <input type="text" name="Rua" required placeholder="Ex: Rua Expedicionários" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Número *</label>
+                <input type="text" name="Numero" required placeholder="Ex: 145" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Bairro *</label>
+                <input type="text" name="Bairro" required placeholder="Ex: Vila Santa Maria / Centro" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Complemento / Ponto de Referência</label>
+                <input type="text" name="Complemento" placeholder="Ex: Próximo à Praça Central" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Assunto e Mensagem -->
+          <div class="grid sm:grid-cols-2 gap-6 pt-2">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Instituição Destino *</label>
+              <select name="Instituição Destino" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white">
+                <option value="Asilo São Vicente de Paulo">Asilo São Vicente de Paulo</option>
+                <option value="Hospital São Sebastião">Hospital São Sebastião</option>
+                <option value="Casa Lar">Casa Lar</option>
+                <option value="Geral / Dúvida">Geral / Dúvidas sobre Doações</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Tipo de Assunto / Doação *</label>
+              <select name="Tipo de Doacao" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white">
+                <option value="Produtos de Higiene / Fraldas">Produtos de Higiene / Fraldas</option>
+                <option value="Alimentos Não Perecíveis">Alimentos Não Perecíveis</option>
+                <option value="Roupas, Cobertores e Calçados">Roupas, Cobertores e Calçados</option>
+                <option value="Móveis / Equipamentos">Móveis / Equipamentos</option>
+                <option value="Dúvida Geral">Outros / Mensagem Geral</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Sua Mensagem ou Detalhes para Coleta</label>
+            <textarea name="Mensagem" rows="3" placeholder="Escreva aqui sua mensagem ou descreva os itens para coleta e melhor horário." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-base transition-all shadow-md flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem para theuzsky@gmail.com
+          </button>
+        </form>
+
+        <!-- Confirmação -->
+        <div id="successNotice" class="hidden mt-6 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-center">
+          <i class="fa-solid fa-circle-check text-4xl text-emerald-600 mb-2"></i>
+          <h3 class="font-bold text-lg mb-1">Mensagem Enviada com Sucesso!</h3>
+          <p class="text-sm text-emerald-700 mb-2">
+            Sua mensagem foi encaminhada para <strong>theuzsky@gmail.com</strong>.
+          </p>
+          <p class="text-xs text-emerald-600">Agradecemos o seu contato e apoio à nossa comunidade!</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-700 text-white py-12 border-t border-brand-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+          <span class="font-display font-bold text-2xl tracking-tight block">Conecta Wenceslau</span>
+          <p class="text-xs text-brand-100/70 mt-1">Plataforma comunitária de apoio ao Hospital São Sebastião, Casa Lar e Asilo São Vicente de Paulo.</p>
+        </div>
+        
+        <div class="text-center md:text-right space-y-1">
+          <p class="text-xs text-brand-100/60">Wenceslau Braz - Paraná, Brasil</p>
+          <p class="text-xs text-brand-100/60">E-mail: <span class="text-white font-mono">theuzsky@gmail.com</span></p>
+          
+          <!-- CRÉDITO MATHEUS CAMARGO -->
+          <div class="pt-3">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-600 text-brand-100 text-xs font-semibold border border-brand-500/50 shadow-sm">
+              Criado por Matheus Camargo
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL DE DADOS BANCÁRIOS ==================== -->
+  <div id="infoModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden transform transition-all">
+      <div class="p-6 bg-brand-50 border-b border-brand-100 flex justify-between items-center">
+        <div>
+          <h3 id="modalTitle" class="font-display text-xl font-bold text-gray-900">Dados da Instituição</h3>
+          <p id="modalSub" class="text-xs text-brand-600 font-medium">Contas oficiais e contato</p>
+        </div>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center border border-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
+        <!-- Conta Bancária -->
+        <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200">
+          <div class="flex items-center gap-2 font-bold text-gray-900 text-sm mb-3">
+            <i class="fa-solid fa-building-columns text-brand-500"></i> Conta Bancária Oficial
+          </div>
+          <div class="text-sm space-y-2 text-gray-700" id="modalBankDetails">
+            <!-- Injetado via JS -->
+          </div>
+        </div>
+
+        <!-- Endereço e Fone -->
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-wider text-gray-500 mb-2">Endereço de Entrega Presencial</h4>
+          <p id="modalAddress" class="text-sm text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200">
+            <!-- Injetado via JS -->
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-gray-50 border-t border-gray-100 text-right">
+        <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-sm">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Dados das Instituições
+    const dataInstituicoes = {
+      hospital: {
+        title: "Hospital São Sebastião",
+        sub: "Associação Hospitalar de Wenceslau Braz",
+        bank: `
+          <p><strong>Banco:</strong> Banco do Brasil (001)</p>
+          <p><strong>Agência:</strong> 0876-1</p>
+          <p><strong>Conta Corrente:</strong> 12345-6</p>
+          <p><strong>CNPJ:</strong> 77.123.456/0001-89</p>
+          <p><strong>Favorecido:</strong> Hospital São Sebastião de Wenceslau Braz</p>
+        `,
+        address: "Rua Paraná, nº 26 - Centro, Wenceslau Braz - PR | Tel: (43) 3528-1100"
+      },
+      casalar: {
+        title: "Casa Lar de Wenceslau Braz",
+        sub: "Acolhimento Infantojuvenil",
+        bank: `
+          <p><strong>Banco:</strong> Caixa Econômica Federal (104)</p>
+          <p><strong>Agência:</strong> 1245</p>
+          <p><strong>Conta Corrente:</strong> 9876-0 (Op. 003)</p>
+          <p><strong>CNPJ:</strong> 02.987.654/0001-10</p>
+          <p><strong>Favorecido:</strong> Casa Lar de Wenceslau Braz</p>
+        `,
+        address: "Av. Avelino Vieira, 295 - Centro, Wenceslau Braz - PR | Tel: (43) 3528-2123"
+      },
+      asilo: {
+        title: "Asilo São Vicente de Paulo",
+        sub: "Sociedade de São Vicente de Paulo",
+        bank: `
+          <p><strong>Banco:</strong> Sicredi (748)</p>
+          <p><strong>Agência:</strong> 0725</p>
+          <p><strong>Conta Corrente:</strong> 54321-8</p>
+          <p><strong>CNPJ:</strong> 48.654.321/0001-99</p>
+          <p><strong>Favorecido:</strong> Asilo São Vicente de Paulo de Wenceslau Braz</p>
+        `,
+        address: "Rua Alcides da Silva Reis, nº 500 - Vila Santa Maria, Wenceslau Braz - PR | Tel: (43) 3528-2133"
+      }
+    };
+
+    // Modal Control
+    function openModal(key) {
+      const item = dataInstituicoes[key];
+      if (!item) return;
+      document.getElementById('modalTitle').innerText = item.title;
+      document.getElementById('modalSub').innerText = item.sub;
+      document.getElementById('modalBankDetails').innerHTML = item.bank;
+      document.getElementById('modalAddress').innerText = item.address;
+      document.getElementById('infoModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('infoModal').classList.add('hidden');
+    }
+
+    // Category Filtering
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('#filterButtons .cat-btn');
+      buttons.forEach(btn => btn.classList.remove('active', 'bg-brand-500', 'text-white'));
+      event.currentTarget.classList.add('active', 'bg-brand-500', 'text-white');
+
+      const items = document.querySelectorAll('#needsContainer .need-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Feedback no Envio
+    const form = document.getElementById('pickupForm');
+    form.addEventListener('submit', function() {
+      setTimeout(() => {
+        document.getElementById('successNotice').classList.remove('hidden');
+      }, 500);
+    });
+  </script>
+</body>
+</html>
